@@ -27,12 +27,12 @@
     "@renku_data_type": "renku.domain_model.project.ProjectTemplateMetadata",
     "@renku_data_value": {
       "immutable_template_files": [],
-      "metadata": "{\"__template_source__\": \"https://github.com/SwissDataScienceCenter/renku-project-template\", \"__template_ref__\": \"0.7.2\", \"__template_id__\": \"python-minimal\", \"__namespace__\": \"expectmine\", \"__repository__\": \"https://gitlab.renkulab.io\", \"__sanitized_project_name__\": \"mlinvitrotox-tutorial\", \"__project_slug__\": \"expectmine/mlinvitrotox-tutorial\", \"__project_description__\": \"How to get started with the MLinvitrotox package\", \"__renku_version__\": \"2.9.2\", \"name\": \"mlinvitrotox-tutorial\", \"__name__\": \"mlinvitrotox-tutorial\", \"__template_version__\": \"ee4cf00c52c6cd45363a40b55540343e9ecf70af\", \"__automated_update__\": true}",
+      "metadata": "{\"__template_source__\": \"https://github.com/SwissDataScienceCenter/renku-project-template\", \"__template_ref__\": \"0.8.0\", \"__template_id__\": \"python-minimal\", \"__namespace__\": \"expectmine\", \"__repository__\": \"https://gitlab.renkulab.io\", \"__sanitized_project_name__\": \"mlinvitrotox-tutorial\", \"__project_slug__\": \"expectmine/mlinvitrotox-tutorial\", \"__project_description__\": \"How to get started with the MLinvitrotox package\", \"__renku_version__\": \"2.9.2\", \"name\": \"mlinvitrotox-tutorial\", \"__name__\": \"mlinvitrotox-tutorial\", \"__template_version__\": \"68f5a923565cfd65b839266bb2fa33b60062d109\", \"__automated_update__\": true}",
       "ssh_supported": true,
       "template_id": "python-minimal",
-      "template_ref": "0.7.2",
+      "template_ref": "0.8.0",
       "template_source": "https://github.com/SwissDataScienceCenter/renku-project-template",
-      "template_version": "ee4cf00c52c6cd45363a40b55540343e9ecf70af"
+      "template_version": "68f5a923565cfd65b839266bb2fa33b60062d109"
     }
   },
   "version": 10

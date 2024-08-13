@@ -7,12 +7,14 @@ How to get started with the MLinvitrotox package
 
 ## B. Getting started
 
-TODO the SIRIUS data and the models still need to be added somehow
+TODO the SIRIUS data and the models still need to be added
 
-Open a terminal and move to a folder
+In its current form, MLinvitroTox can only be used from a terminal as a command line interface.
+
+Open a terminal and move to the folder in which you would like to work.
 
 ```
-cd move/to/folder
+cd move/to/work/folder
 ```
 
 Clone the repository
@@ -22,7 +24,9 @@ cd mlinvitrotox-tutorial
 ```
 
 Create a conda environment. We suggest to use mamba, an optimized version of conda.
-# TODO or another virtual env?
+
+TODO or another virtual env?
+
 If you need to install mamba (and conda), see [here](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html)
 ```
 mamba env create -f ./environment.yml
@@ -34,7 +38,8 @@ conda activate mlinvitrotox-tutorial
 ```
 
 Install the mlinvitrotox package
-# TODO when on pypi, add to environment.yml
+
+TODO This step can be skipped, when mlinvitrotox is on pypi (it needs to be added to environment.yml)
 ```
 pip install -i https://test.pypi.org/simple/ mlinvitrotox
 ```
@@ -60,7 +65,7 @@ itox run -m models/2024-08-09_20-08-13 -i results/sample/sirius-pred-fps.csv -o 
 
 View the results
 
-# TODO how
+TODO how
 
 
 

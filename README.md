@@ -8,7 +8,7 @@ How to get started with the MLinvitrotox package
 
 ## B. Getting started
 
-TODO the SIRIUS data and the models still need to be added
+TODO the models still need to be added
 
 ### MLinvitroTox is a CLI
 
@@ -124,7 +124,7 @@ itox load -i data/sampledata -o results/sampledata/sirius-pred-fps.csv
 
 Run the models on your predicted fingerprints
 ```
-itox run -m models/2024-08-09_20-08-13 -i results/sampledata/sirius-pred-fps.csv -o results/sampledata
+itox run -m models/model_20240809 -i results/sampledata/sirius-pred-fps.csv -o results/sampledata
 ```
 
 

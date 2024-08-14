@@ -341,3 +341,4 @@ tags
 # Folders
 tmp*/*
 models/*
+data/*

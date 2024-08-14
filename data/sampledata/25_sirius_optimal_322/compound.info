@@ -1,0 +1,9 @@
+index	25
+name	sirius_optimal_322
+ionMass	141.11345
+ionType	[M + ?]+
+detectedAdducts	MS1_PREPROCESSOR:{}
+rt	184.69:NaN,NaN
+confidenceScore	0.42235786798985414
+featureId	322
+rankingScoreType	sirius.scores.SiriusScore

@@ -113,7 +113,7 @@ Depending on the size of the SIRIUS output, this takes a few seconds up to a sev
 
 ### Load the SIRIUS data
 
-Then, the SIRIUS data needs to be loaded, i.e., the predicted fingerprints and other information are collected and stored in the `sirius-pred-fps.csv` file in the specified output folder.
+Then, the SIRIUS data needs to be loaded, i.e., the predicted fingerprints and other information are collected and stored in the `sirius-pred-fps.csv` file in the specified results folder.
 
 ```
 itox load -i data/sampledata -o results/sampledata/sirius-pred-fps.csv
@@ -124,21 +124,19 @@ itox load -i data/sampledata -o results/sampledata/sirius-pred-fps.csv
 
 Run the models on your predicted fingerprints
 ```
-itox run -m models/2024-08-09_20-08-13 -i results/sample/sirius-pred-fps.csv -o results/sample
-
+itox run -m models/2024-08-09_20-08-13 -i results/sampledata/sirius-pred-fps.csv -o results/sampledata
 ```
 
 
+### View the results
 
-View the results
+To view the results, have a look at the output csv files.
 
-TODO how
-
-
-
+TODO explain columns
 
 
-## D. More information
+
+### More information
 
 All the commands can also be run with `mlinvitrotox` instead `itox`. 
 

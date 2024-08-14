@@ -1,0 +1,7 @@
+index	16
+name	sirius_optimal_868
+ionMass	277.92205
+ionType	[M + Na]+
+rt	191.78:NaN,NaN
+featureId	868
+rankingScoreType	sirius.scores.SiriusScore

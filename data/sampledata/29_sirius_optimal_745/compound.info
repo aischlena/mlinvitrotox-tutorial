@@ -1,0 +1,7 @@
+index	29
+name	sirius_optimal_745
+ionMass	164.97003
+ionType	[M - H2O + H]+
+rt	190.35576171875:NaN,NaN
+featureId	745
+rankingScoreType	sirius.scores.SiriusScore

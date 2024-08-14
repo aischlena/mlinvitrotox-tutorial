@@ -1,0 +1,4 @@
+formulaRank	molecularFormula	adduct	precursorFormula	SiriusScore	TreeScore	IsotopeScore	numExplainedPeaks	explainedIntensity	medianMassErrorFragmentPeaks(ppm)	medianAbsoluteMassErrorFragmentPeaks(ppm)	massErrorPrecursor(ppm)	lipidClass
+1	C3H4NO2P2	[M - CHO2 + H]+	C2H3NP2	-3.605170185988091	-3.605170185988091	0.0	2	0.0	NaN	NaN	-432726.5385861721	
+2	C7HO2P	[M - CHO2 + H]+	C6P	-8.210340371976182	-8.210340371976182	0.0	2	0.0	NaN	NaN	-432723.5503436867	
+3	C4H5O2PS	[M - CHO2 + H]+	C3H4PS	-9.819778284410283	-9.819778284410283	0.0	2	0.0	NaN	NaN	-432755.9703790658	

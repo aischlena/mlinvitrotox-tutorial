@@ -1,0 +1,7 @@
+index	20
+name	sirius_optimal_300
+ionMass	183.98137
+ionType	[M + Na]+
+rt	189.83249999999998:NaN,NaN
+featureId	300
+rankingScoreType	sirius.scores.SiriusScore

@@ -1,0 +1,8 @@
+index	18
+name	sirius_optimal_471
+ionMass	235.97381
+ionType	[M + ?]+
+detectedAdducts	MS1_PREPROCESSOR:{[M - H2O + H]+,[M + H]+}
+rt	190.90640625:NaN,NaN
+featureId	471
+rankingScoreType	sirius.scores.SiriusScore

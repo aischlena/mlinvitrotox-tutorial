@@ -1,0 +1,3 @@
+formulaRank	molecularFormula	adduct	precursorFormula	SiriusScore	TreeScore	IsotopeScore	numExplainedPeaks	explainedIntensity	medianMassErrorFragmentPeaks(ppm)	medianAbsoluteMassErrorFragmentPeaks(ppm)	massErrorPrecursor(ppm)	lipidClass
+1	H4NO4	[M + Na]+	H4NO4	18.633837570277638	18.633837570277638	0.0	3	0.9351683086277645	-2.2315989312464026	2.2315989312464026	-0.031504649056617755	
+2	CN5	[M + Na]+	CN5	-5.296869172947089	-5.296869172947089	0.0	1	0.0	-12.825318906820746	12.825318906820746	-12.768177085486876	

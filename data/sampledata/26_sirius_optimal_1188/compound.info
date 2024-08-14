@@ -1,0 +1,9 @@
+index	26
+name	sirius_optimal_1188
+ionMass	217.96323
+ionType	[M + ?]+
+detectedAdducts	MS1_PREPROCESSOR:{[M - H2O + H]+,[M - H4O2 + H]+}
+rt	186.16:NaN,NaN
+confidenceScore	-Infinity
+featureId	1188
+rankingScoreType	sirius.scores.SiriusScore

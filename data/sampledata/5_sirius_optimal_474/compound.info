@@ -1,0 +1,7 @@
+index	5
+name	sirius_optimal_474
+ionMass	103.98286
+ionType	[M - CHO2 + H]+
+rt	189.27:NaN,NaN
+featureId	474
+rankingScoreType	sirius.scores.SiriusScore

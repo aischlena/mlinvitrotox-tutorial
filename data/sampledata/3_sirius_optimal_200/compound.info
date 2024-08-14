@@ -1,0 +1,8 @@
+index	3
+name	sirius_optimal_200
+ionMass	207.97889
+ionType	[M + ?]+
+detectedAdducts	MS1_PREPROCESSOR:{}
+rt	188.949375:NaN,NaN
+featureId	200
+rankingScoreType	sirius.scores.SiriusScore

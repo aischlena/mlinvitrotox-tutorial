@@ -1,0 +1,7 @@
+index	15
+name	sirius_optimal_361
+ionMass	114.9876
+ionType	[M - CH3O2 + H]+
+rt	189.8:NaN,NaN
+featureId	361
+rankingScoreType	sirius.scores.SiriusScore

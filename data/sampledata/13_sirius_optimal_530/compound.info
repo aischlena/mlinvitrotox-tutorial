@@ -1,0 +1,8 @@
+index	13
+name	sirius_optimal_530
+ionMass	441.86034
+ionType	[M + ?]+
+detectedAdducts	MS1_PREPROCESSOR:{[M + K]+,[M + Na]+}
+rt	182.72:NaN,NaN
+featureId	530
+rankingScoreType	sirius.scores.SiriusScore

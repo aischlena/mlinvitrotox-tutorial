@@ -1,0 +1,2 @@
+formulaRank	molecularFormula	adduct	precursorFormula	SiriusScore	TreeScore	IsotopeScore	numExplainedPeaks	explainedIntensity	medianMassErrorFragmentPeaks(ppm)	medianAbsoluteMassErrorFragmentPeaks(ppm)	massErrorPrecursor(ppm)	lipidClass
+1	CH2NOPS	[M + H]+	CH2NOPS	-2.255745229737161	-2.255745229737161	0.0	1	0.0	-0.840686310560965	0.840686310560965	0.2985539576632967	

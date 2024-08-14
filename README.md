@@ -71,7 +71,7 @@ pip install -i https://test.pypi.org/simple/ mlinvitrotox
 
 After the repository and the environment are setup, you can get started with analyzing HRMS data.
 
-To show the basic functionality, there is a small `sample` dataset in the `data` folder.
+To show the basic functionality, there is a small sample dataset in the `data` folder, called `sampledata`.
 
 
 ### Extract the SIRIUS data
@@ -84,16 +84,28 @@ KASIA Could you check whether this description with the summaries make sense?
 
 The SIRIUS data can be provided in two ways:
 
-1. as a folder. Move or copy your SIRIUS output folder to the `data` folder. You then run the following command to extract it. It is being extracted in the same folder. For this tutorial, we use the `sample` dataset. 
+1. as a folder. Move or copy your SIRIUS output folder to the `data` folder. 
 
 ```
-itox extract -i data/sample
+mv /path/to/your/sirius/folder data/
+```
+
+or 
+
+```
+cp -r /path/to/your/sirius/folder data/
+```
+
+You then run the following command to extract it. It is being extracted in the same folder. Here, we use the sample dataset. 
+
+```
+itox extract -i data/sampledata
 ```
 
 2. as a zip folder. We recommend to keep the zip filder outside of the repository's directory structure. To extract, run the following command. The data will then be unzipped and extract to the `data/sample` folder.
 
 ```
-itox extract -i path/to/zipfile/sample.zip -o data/
+itox extract -i path/to/zipfile/sampledata.zip -o data/
 ```
 
 Depending on the size of the SIRIUS output, this takes a few seconds up to a several minutes.
@@ -102,9 +114,13 @@ Depending on the size of the SIRIUS output, this takes a few seconds up to a sev
 ### Load the SIRIUS data
 
 Then, the SIRIUS data needs to be loaded, i.e., the predicted fingerprints and other information are collected and stored in the `sirius-pred-fps.csv` file in the specified output folder.
+
 ```
-itox load -i data/sample -o results/sample/sirius-pred-fps.csv
+itox load -i data/sampledata -o results/sampledata/sirius-pred-fps.csv
 ```
+
+
+### Run the models
 
 Run the models on your predicted fingerprints
 ```

@@ -8,8 +8,6 @@ How to get started with the MLinvitrotox package
 
 ## B. Getting started
 
-TODO the models still need to be added
-
 ### MLinvitroTox is a CLI
 
 In its current form, MLinvitroTox can only be used from a terminal as a command line interface (CLI). 
@@ -37,7 +35,7 @@ git clone git@gitlab.renkulab.io:expectmine/mlinvitrotox-tutorial.git
 cd mlinvitrotox-tutorial
 ```
 
-Create a conda environment. We suggest to use mamba, an optimized version of conda.
+Create a conda environment. We recommend to use mamba, an optimized version of conda.
 
 If you need to install mamba (and conda), see [here](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html). Should you be unfamiliar with conda environments, please check: TODO link
 
@@ -46,10 +44,19 @@ mamba env create -f ./environment.yml
 ```
 
 
-If it was successful, you see an output like that.
+If it was successful, you see an output that ends like this:
 
 ```
-TODO mamba env create output
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate mlinvitrotox-tutorial
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
 ```
 
 
@@ -76,9 +83,7 @@ To show the basic functionality, there is a small sample dataset in the `data` f
 
 ### Extract the SIRIUS data
 
-As the first step, you add the output from SIRIUS. Make sure to create the SIRIUS output with the summaries.
-
-TODO link SIRIUS
+As the first step, you add the output from [SIRIUS](https://bio.informatik.uni-jena.de/software/sirius/). Make sure to create the SIRIUS output with the summaries.
 
 KASIA Could you check whether this description with the summaries make sense?
 
@@ -102,6 +107,12 @@ You then run the following command to extract it. It is being extracted in the s
 itox extract -i data/sampledata
 ```
 
+If you don't want to move or copy your SIRIUS output, it can also be extracted. You will then need to specify the same path in the load step. 
+```
+itox extract -i /path/to/your/sirius/folder
+```
+
+
 2. as a zip folder. We recommend to keep the zip filder outside of the repository's directory structure. To extract, run the following command. The data will then be unzipped and extract to the `data/sample` folder.
 
 ```
@@ -122,9 +133,15 @@ itox load -i data/sampledata -o results/sampledata/sirius-pred-fps.csv
 
 ### Run the models
 
-Run the models on your predicted fingerprints
+Run the models on your predicted fingerprints. When you use this command for the first time, it is going to download the model from [zenodo](https://zenodo.org/records/13323297). The models are provided as a zipped folder (with the abbreviation `.itox`). 
+
 ```
-itox run -m models/model_20240809 -i results/sampledata/sirius-pred-fps.csv -o results/sampledata
+itox run -m mlinvitrotox_model -i results/sampledata/sirius-pred-fps.csv -o results/sampledata
+```
+
+or
+```
+itox run -m mlinvitrotox_model.itox -i results/sampledata/sirius-pred-fps.csv -o results/sampledata
 ```
 
 
@@ -139,17 +156,4 @@ TODO explain columns
 ### More information
 
 All the commands can also be run with `mlinvitrotox` instead `itox`. 
-
-
-
-
-
-
-
-
-
-
-
-
-
 

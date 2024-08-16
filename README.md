@@ -161,6 +161,8 @@ Column names explanations:
 
 All the commands can also be run with `mlinvitrotox` instead `itox`. 
 
+MLinvitroTox will work with SIRIUS output up to [v5.8.6](https://github.com/bright-giant/sirius/releases/tag/v5.8.6), but not the latest release v6.0.4 (work in progress). 
+
 ## References
 - Arturi et al. (2024) "MLinvitroTox reloaded for high-throughput hazard-based prioritization of HRMS data." (In preparation).
 

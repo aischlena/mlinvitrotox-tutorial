@@ -163,7 +163,7 @@ Column names explanations:
 
 All the commands can also be run with `mlinvitrotox` instead `itox`. 
 
-## D.References
+## References
 - Arturi et al. (2024) "MLinvitroTox reloaded for high-throughput hazard-based prioritization of HRMS data." (In preparation).
 
 - Arturi, Katarzyna, and Juliane Hollender. "Machine learning-based hazard-driven prioritization of features in nontarget screening of environmental high-resolution mass spectrometry data." Environmental Science & Technology 57, no. 46 (2023): 18067-18079.

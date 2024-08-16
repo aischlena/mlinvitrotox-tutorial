@@ -3,23 +3,24 @@
 How to get started with the MLinvitrotox package
 
 ## A. Project description
-MLinvitroTox is an open-source Python package designed to provide a fully automated high-throughput pipeline for a hazard-driven prioritization of toxicologically relevant signals among tens of thousands of HRMS signals commonly found in complex environmental samples via nontarget (NTS) screening. MLinvitroTox is a machine learning (ML) framework consisting of 490 independent XGBoost supervised classifiers trained on molecular fingerprints calculated from structures [source](https://www.epa.gov/comptox-tools/distributed-structure-searchable-toxicity-dsstox-database) and target specific endpoints from the ToxCast/Tox21 invitroDBv4.1 database [link](https://www.epa.gov/comptox-tools/exploring-toxcast-data) to predict a 490 bit binary bioactivity fingerpint for each undientified HRMS feature (distinct m/z ions) based its MS2 fragmentation [spectra](https://en.wikipedia.org/wiki/Tandem_mass_spectrometry#:~:text=Tandem%20mass%20spectrometry%2C%20also%20known,abilities%20to%20analyse%20chemical%20samples.) via [SIRIUS](https://bio.informatik.uni-jena.de/software/sirius/). This fingerprints, along with supporting inforamtion, is used as the basis for prioritization of HRMS features towards further elucidation and analytical confirmation, thus adding toxicological relevance to environmental analysis by focusing the time-consuming molecular identification efforts on the features most likely to cause adverse effects. In addition to its core functionality of predicting bioactivity from molecular fingerprints derived from MS2, MLinvitroTox can:
+MLinvitroTox is an open-source Python package developed to provide a fully automated high-throughput pipeline for hazard-driven prioritization of toxicologically relevant signals among tens of thousands of signals commonly detected in complex environmental samples through nontarget high-resolution mass spectrometry (NTS HRMS/MS). It is a machine learning (ML) framework comprising 490 independent XGBoost classifiers trained on molecular fingerprints from chemical structures and target specific endpoints from the ToxCast/Tox21 [invitroDBv4.1 database](https://www.epa.gov/comptox-tools/exploring-toxcast-data). In contrast to the classical approaches for ML-based toxicity prediction, MLinvitroTox predicts a bioactivity fingerprint for each unidentified HRMS feature (a distinct m/z ion) based on the molecular fingerprints derived from MS2 fragmentation spectra, rather than its chemical structure. The 490-bit binary bioactivity fingerprints are used as the basis for prioritizing the HRMS features towards further elucidation and analytical confirmation. This approach adds toxicological relevance to environmental analysis by focusing the time-consuming molecular identification efforts on features most likely to cause adverse effects instead of the e.g., the most intense ones. MlinvitroTox is based on a while-box approach enhancing the interpretability of the obtained machine learning results by adding applicability domain considerations, activity scores based on single predictions' probabilities, model accuracy, and cumulative contribution of endpoints for mechanistic targets, as well as feature importance analysis. In addition to its core functionality of predicting bioactivity from molecular fingerprints derived from MS2 data, MLinvitroTox can:
 
 - standardize molecular structures
 - generate molecular fingerprints
-- predict nioactivity from structures [smiles](https://archive.epa.gov/med/med_archive_03/web/html/smiles.html)
+- predict bioactivity from structures [smiles](https://archive.epa.gov/med/med_archive_03/web/html/smiles.html)
 - validate SIRIUS' accuracy in predicting molecular fingerprints
 - extract SIRIUS output
+- be retrained with custom data and user parameters
 
 
 ## B. Getting started
 
-In its current form, MLinvitroTox can only be used from a terminal as a command line interface (CLI).
+In its current form, MLinvitroTox can only be used from a terminal as a **command line interface (CLI)**.
 
-Should you be unfamiliar with Python, conda/mamba and/or git, you can work on a renku session (see below). 
+Should you be unfamiliar with Python, conda/mamba and/or git, you can work on a **renku session** (see below). 
 
 
-### Prerequisites
+### Prerequisites for **CLI**
 
 To work with MLinvitroTox in CLI, you need:
 
@@ -27,19 +28,12 @@ To work with MLinvitroTox in CLI, you need:
 - conda: [installation](https://conda.io/projects/conda/en/latest/user-guide/install/index.html), [guide](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533)
 - mamba: [installation](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html), [guide](https://mamba.readthedocs.io/en/latest/index.html)
 - git: [installation](https://git-scm.com/downloads), [guide](https://www.baeldung.com/ops/git-guide)
-- a terminal: [guide]()
+- a terminal: [guide](https://medium.com/@grace.m.nolan/terminal-for-beginners-e492ba10902a)
 
-Working with terminals on Windows can be cumbersome. We recommend to use WSL, the Windows Subsystem for Linux [installation](https://youtu.be/WrJVlIrutow?si=rzgd549F635XOncO&t=523). This gives you access to a full Ubuntu terminal environment.
-
-For users with limited coding skills or lacking the necessary installations, we created a Renku repository for MLinvitroTox. To be able to use it you need:
-
-- A browser
-- An internet connection.
-
-If you want to take advantage of additional funcrtionality of Renku proejcts, we reccomend to [create free account](https://renkulab.io), whic hwill enable you to clone the publicly availbale MLinvitroTox, upload your own data, and save the predictions for further use. 
+Working with terminals on Windows can be cumbersome. We recommend to use WSL, the Windows Subsystem for Linux [installation](https://youtu.be/WrJVlIrutow?si=rzgd549F635XOncO&t=523). This provides access to a full Ubuntu terminal environment. Using WSL is only recommended for experts, as it will not be supported during the workshop. For Windows users, we recommend using Renku (see below).
 
 
-### Work from a renku session
+### Work from a **renku session**
 
 A renku session allows you to test and work with MLinvitroTox without having to install Python, mamba and git. 
 
@@ -49,9 +43,11 @@ It will open a JupyterLab session in your browser. There, you click on the `term
 
 Now, you can directly start with the [Usage section](#usage) below and can skip the setup of the tutorial repository.
 
-If using the provided Renku project with your own data, the data has to uploaded as a zip file first via the interactive menu on the left. The generated results have to then be downloaded before closing the session. If you start a free Renku account, you can clone the public tutorial project and then use git to save the changes to the code and the data that you generate.
+If you are using the provided renku project with your own data, you must first upload the data as a zip file via the interactive menu on the left. Be sure to download the generated results before closing the session. If you create a free Renku account, you can clone the public tutorial project and use Git to save any changes to the code and data you generate.
 
-### Setup the tutorial repopsitory
+If you want to take advantage of additional functionality offered by renku projects, we recommend [creating a free account](https://renkulab.io). This will enable you to clone the publicly available MLinvitroTox project, upload your own data, and save predictions for further use.
+
+### Setup the tutorial repopsitory for CLI
 
 If you like to work locally, open a terminal and move to the folder in which you would like to work.
 
@@ -72,7 +68,7 @@ mamba env create -f ./environment.yml
 ```
 
 
-## C. Usage
+## C. Usage for CLI and renku
 
 After the repository and the environment are setup, you can get started with analyzing HRMS data.
 
@@ -157,4 +153,15 @@ TODO explain columns
 ### More information
 
 All the commands can also be run with `mlinvitrotox` instead `itox`. 
+
+## References
+- Arturi et al. (2024) "MLinvitroTox reloaded for high-throughput hazard-based prioritization of HRMS data." (In preparation).
+
+- Arturi, Katarzyna, and Juliane Hollender. "Machine learning-based hazard-driven prioritization of features in nontarget screening of environmental high-resolution mass spectrometry data." Environmental Science & Technology 57, no. 46 (2023): 18067-18079.
+
+- Dührkop, Kai, Markus Fleischauer, Marcus Ludwig, Alexander A. Aksenov, Alexey V. Melnik, Marvin Meusel, Pieter C. Dorrestein, Juho Rousu, and Sebastian Böcker. "SIRIUS 4: a rapid tool for turning tandem mass spectra into metabolite structure information." Nature methods 16, no. 4 (2019): 299-302.
+
+
+
+
 

@@ -3,7 +3,13 @@
 How to get started with the MLinvitrotox package
 
 ## A. Project description
+MLinvitroTox is an open-source Python package designed to provide a fully automated high-throughput pipeline for a hazard-driven prioritization of toxicologically relevant signals among tens of thousands of HRMS signals commonly found in complex environmental samples via nontarget (NTS) screening. MLinvitroTox is a machine learning (ML) framework consisting of 490 independent XGBoost supervised classifiers trained on molecular fingerprints calculated from structures [source](https://www.epa.gov/comptox-tools/distributed-structure-searchable-toxicity-dsstox-database) and target specific endpoints from the ToxCast/Tox21 invitroDBv4.1 database [link](https://www.epa.gov/comptox-tools/exploring-toxcast-data) to predict a 490 bit binary bioactivity fingerpint for each undientified HRMS feature (distinct m/z ions) based its MS2 fragmentation [spectra](https://en.wikipedia.org/wiki/Tandem_mass_spectrometry#:~:text=Tandem%20mass%20spectrometry%2C%20also%20known,abilities%20to%20analyse%20chemical%20samples.) via [SIRIUS](https://bio.informatik.uni-jena.de/software/sirius/). This fingerprints, along with supporting inforamtion, is used as the basis for prioritization of HRMS features towards further elucidation and analytical confirmation, thus adding toxicological relevance to environmental analysis by focusing the time-consuming molecular identification efforts on the features most likely to cause adverse effects. In addition to its core functionality of predicting bioactivity from molecular fingerprints derived from MS2, MLinvitroTox can:
 
+- standardize molecular structures
+- generate molecular fingerprints
+- predict nioactivity from structures [smiles](https://archive.epa.gov/med/med_archive_03/web/html/smiles.html)
+- validate SIRIUS' accuracy in predicting molecular fingerprints
+- extract SIRIUS output
 
 
 ## B. Getting started
@@ -15,14 +21,22 @@ Should you be unfamiliar with Python, conda/mamba and/or git, you can work on a 
 
 ### Prerequisites
 
-To work with MLinvitroTox, you need
+To work with MLinvitroTox in CLI, you need:
 
-- Python 3: TODO link
-- mamba / conda: TODO link
-- git: TODO Link
-- a terminal: TODO link
+- Python 3: [installation guide](https://realpython.com/installing-python/)
+- conda: [installation](https://conda.io/projects/conda/en/latest/user-guide/install/index.html), [guide](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533)
+- mamba: [installation](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html), [guide](https://mamba.readthedocs.io/en/latest/index.html)
+- git: [installation](https://git-scm.com/downloads), [guide](https://www.baeldung.com/ops/git-guide)
+- a terminal: [guide]()
 
-Working with terminals on Windows can be cumbersome. We recommend to use WSL, the Windows Subsystem for Linux. This gives you access to a full Ubuntu terminal environment. TODO link
+Working with terminals on Windows can be cumbersome. We recommend to use WSL, the Windows Subsystem for Linux [installation](https://youtu.be/WrJVlIrutow?si=rzgd549F635XOncO&t=523). This gives you access to a full Ubuntu terminal environment.
+
+For users with limited coding skills or lacking the necessary installations, we created a Renku repository for MLinvitroTox. To be able to use it you need:
+
+- A browser
+- An internet connection.
+
+If you want to take advantage of additional funcrtionality of Renku proejcts, we reccomend to [create free account](https://renkulab.io), whic hwill enable you to clone the publicly availbale MLinvitroTox, upload your own data, and save the predictions for further use. 
 
 
 ### Work from a renku session
@@ -35,6 +49,7 @@ It will open a JupyterLab session in your browser. There, you click on the `term
 
 Now, you can directly start with the [Usage section](#usage) below and can skip the setup of the tutorial repository.
 
+If using the provided Renku project with your own data, the data has to uploaded as a zip file first via the interactive menu on the left. The generated results have to then be downloaded before closing the session. If you start a free Renku account, you can clone the public tutorial project and then use git to save the changes to the code and the data that you generate.
 
 ### Setup the tutorial repopsitory
 
@@ -52,15 +67,8 @@ cd mlinvitrotox-tutorial
 
 Create a conda environment. We recommend to use mamba, an optimized version of conda.
 
-If you need to install mamba (and conda), see [here](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html). 
-
 ```
 mamba env create -f ./environment.yml
-```
-
-Then, activate the environment. This needs to be done each time you work in this repository. 
-```
-conda activate mlinvitrotox-tutorial
 ```
 
 
@@ -68,7 +76,7 @@ conda activate mlinvitrotox-tutorial
 
 After the repository and the environment are setup, you can get started with analyzing HRMS data.
 
-Activate the environment.
+Activate the environment. This needs to be done each time you work in this repository. 
 ```
 conda activate mlinvitrotox-tutorial
 ```

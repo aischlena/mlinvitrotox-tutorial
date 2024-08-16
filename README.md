@@ -30,7 +30,7 @@ To work with MLinvitroTox in CLI, you need:
 - git: [installation](https://git-scm.com/downloads), [guide](https://www.baeldung.com/ops/git-guide)
 - a terminal: [guide](https://medium.com/@grace.m.nolan/terminal-for-beginners-e492ba10902a)
 
-Working with terminals on Windows can be cumbersome. We recommend to use WSL, the Windows Subsystem for Linux [installation](https://youtu.be/WrJVlIrutow?si=rzgd549F635XOncO&t=523). This provides access to a full Ubuntu terminal environment. Using WSL is only recommended for experts, as it will not be supported during the workshop. For Windows users, we recommend using Renku (see below).
+Working with terminals on Windows can be cumbersome. We recommend to use WSL, the Windows Subsystem for Linux [installation](https://youtu.be/WrJVlIrutow?si=rzgd549F635XOncO&t=523). This provides access to a full Ubuntu terminal environment. Using WSL is only recommended for experts, as it will not be supported during the workshop. For Windows users, we recommend using renku (see below).
 
 
 ### Work from a **renku session**
@@ -144,22 +144,37 @@ itox run -m mlinvitrotox_model.itox -i results/sampledata/sirius-pred-fps.csv -o
 
 ### View the results
 
-To view the results, have a look at the output csv files.
+To view the results, have a look at the output csv file `mlinvitrotox_model_predictions.csv` in `results/sampledata/`.
 
-TODO explain columns
+Column names explanations:
 
+- **aeid** assay endpoint identifier from ToxCast/Tox21 [invitroDBv4.1 database](https://www.epa.gov/comptox-tools/exploring-toxcast-data)
+- **chem_id** a feature identifier created as follows sirius-id_mgf-file-name_mzmine-id_formula_adduct.
+- **prediction** a binary activity (1) or nonactivity (0) prediction generated from column **probability** on 0.5 default threshold
+- **probability** the contineous activity probability from 0 to 1. 
+- **similarity** cosine-based similarity of the feature to the training data for the particualr endpoint (based on molecular fingerprints). 
+- **MechanisticTarget** the biologically meaningful effect of an endpoint mapped according to [NICEATM](https://ncim.nci.nih.gov/ncimbrowser/)
+- **signal_direction** gain for agonistic effects, loss for antagonistic effects, and both for bidirectional endpoints. 
+- **endpoint_score** the fraction of active hitcalls for a feature divided by the total number of endpoints per mechanistic target 
+- **endpoint_count** the total number of endpoints assocaited with a mechanistic target 
 
 
 ### More information
 
 All the commands can also be run with `mlinvitrotox` instead `itox`. 
 
-## References
+## D.References
 - Arturi et al. (2024) "MLinvitroTox reloaded for high-throughput hazard-based prioritization of HRMS data." (In preparation).
 
 - Arturi, Katarzyna, and Juliane Hollender. "Machine learning-based hazard-driven prioritization of features in nontarget screening of environmental high-resolution mass spectrometry data." Environmental Science & Technology 57, no. 46 (2023): 18067-18079.
 
 - Dührkop, Kai, Markus Fleischauer, Marcus Ludwig, Alexander A. Aksenov, Alexey V. Melnik, Marvin Meusel, Pieter C. Dorrestein, Juho Rousu, and Sebastian Böcker. "SIRIUS 4: a rapid tool for turning tandem mass spectra into metabolite structure information." Nature methods 16, no. 4 (2019): 299-302.
+
+- Abedini, Jaleh, Bethany Cook, Shannon Bell, Xiaoqing Chang, Neepa Choksi, Amber B. Daniel, David Hines et al. "Application of new approach methodologies: ICE tools to support chemical evaluations." Computational Toxicology 20 (2021): 100184.
+
+- Richard, Ann M., Richard S. Judson, Keith A. Houck, Christopher M. Grulke, Patra Volarath, Inthirany Thillainadarajah, Chihae Yang et al. "ToxCast chemical landscape: paving the road to 21st century toxicology." Chemical research in toxicology 29, no. 8 (2016): 1225-1251.
+
+
 
 
 

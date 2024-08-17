@@ -3,6 +3,7 @@
 How to get started with the MLinvitrotox package
 
 ## A. Project description
+
 MLinvitroTox is an open-source Python package developed to provide a fully automated high-throughput pipeline for hazard-driven prioritization of toxicologically relevant signals among tens of thousands of signals commonly detected in complex environmental samples through nontarget high-resolution mass spectrometry (NTS HRMS/MS). It is a machine learning (ML) framework comprising 490 independent XGBoost classifiers trained on molecular fingerprints from chemical structures and target specific endpoints from the ToxCast/Tox21 [invitroDBv4.1 database](https://www.epa.gov/comptox-tools/exploring-toxcast-data). In contrast to the classical approaches for ML-based toxicity prediction, MLinvitroTox predicts a bioactivity fingerprint for each unidentified HRMS feature (a distinct m/z ion) based on the molecular fingerprints derived from MS2 fragmentation spectra, rather than its chemical structure. The 490-bit binary bioactivity fingerprints are used as the basis for prioritizing the HRMS features towards further elucidation and analytical confirmation. This approach adds toxicological relevance to environmental analysis by focusing the time-consuming molecular identification efforts on features most likely to cause adverse effects instead of the most intense ones. MlinvitroTox enhances the interpretability by providing applicability domain, predictions' probabilities, model accuracy, and cumulative contribution of endpoints for mechanistic targets, as well as feature importance analysis. In addition to its core functionality of predicting bioactivity from molecular fingerprints derived from MS2 data, the full release of MLinvitroTox will also support:
 
 - standardization of custom molecular structures
@@ -46,7 +47,7 @@ If you are using the provided renku project with your own data, you must first u
 
 If you want to take advantage of additional functionality offered by renku projects, we recommend [creating a free account](https://renkulab.io). This will enable you to clone the publicly available MLinvitroTox project, upload your own data, and save predictions for further use.
 
-### Setup the tutorial repopsitory for CLI
+### Setup the tutorial repopsitory (needed for CLI)
 
 If you like to work locally, open a terminal and move to the folder in which you would like to work.
 
@@ -67,11 +68,11 @@ mamba env create -f ./environment.yml
 ```
 
 
-## C. Usage for CLI and renku
+## C. Usage (CLI and renku)
 
-After the repository and the environment are setup, you can get started with analyzing HRMS data.
+After the repository and the environment are setup, or when you are in a renku session, you can get started with analyzing HRMS data.
 
-Activate the environment. This needs to be done each time you work in this repository. 
+Activate the environment. This needs to be done each time. 
 ```
 conda activate mlinvitrotox-tutorial
 ```
@@ -103,13 +104,14 @@ You then run the following command to extract it. It is being extracted in the s
 itox extract -i data/sampledata
 ```
 
-If you don't want to move or copy your SIRIUS output, it can also be extracted. You will then need to specify the same path in the load step. 
+If you don't want to move or copy your SIRIUS output, it can also be extracted in a folder outside of the repository. In the [load step](load-the-sirius-data), you will then need to specify the same path.
+
 ```
 itox extract -i /path/to/your/sirius/folder
 ```
 
 
-2. as a zip folder. We recommend to keep the zip filder outside of the repository's directory structure. To extract, run the following command. The data will then be unzipped and extract to the `data/sample` folder.
+2. as a zip folder. We recommend to keep the zip filder outside of the repository's directory structure. To extract, run the following command. The data will then be unzipped and extract to the `data/sampledata` folder.
 
 ```
 itox extract -i path/to/zipfile/sampledata.zip -o data/
@@ -120,7 +122,7 @@ Depending on the size of the SIRIUS output, this takes a few seconds up to a sev
 
 ### Load the SIRIUS data
 
-Then, the SIRIUS data needs to be loaded, i.e., the predicted fingerprints and other information are collected and stored in the `sirius-pred-fps.csv` file in the specified results folder.
+Then, the SIRIUS data needs to be loaded, i.e., the predicted fingerprints and other information are collected and stored in the `sirius-pred-fps.csv` file in the specified results folder. 
 
 ```
 itox load -i data/sampledata -o results/sampledata/sirius-pred-fps.csv
@@ -129,7 +131,7 @@ itox load -i data/sampledata -o results/sampledata/sirius-pred-fps.csv
 
 ### Run the models
 
-Run the models on your predicted fingerprints. When you use this command for the first time, it is going to download the model from [zenodo](https://zenodo.org/records/13323297). The models are provided as a zipped folder (with the abbreviation `.itox`). 
+Run the models on your predicted fingerprints. When you use this command for the first time, it is going to download the model from [zenodo](https://zenodo.org/records/13323297). The models are provided as a zipped folder (with the abbreviation `.itox`). Currently, there is one set of models with the name `mlinvitrotox_model.itox`.
 
 ```
 itox run -m mlinvitrotox_model -i results/sampledata/sirius-pred-fps.csv -o results/sampledata
@@ -150,12 +152,12 @@ Column names explanations:
 - **aeid** assay endpoint identifier from ToxCast/Tox21 [invitroDBv4.1 database](https://www.epa.gov/comptox-tools/exploring-toxcast-data)
 - **chem_id** a feature identifier created as follows sirius-id_mgf-file-name_mzmine-id_formula_adduct.
 - **prediction** a binary activity (1) or nonactivity (0) prediction generated from column **probability** on 0.5 default threshold
-- **probability** the contineous activity probability from 0 to 1. 
+- **probability** the continuous activity probability from 0 to 1. 
 - **similarity** cosine-based similarity of the feature to the training data for the particualr endpoint (based on molecular fingerprints). 
 - **MechanisticTarget** the biologically meaningful effect of an endpoint mapped according to [NICEATM](https://ncim.nci.nih.gov/ncimbrowser/)
 - **signal_direction** gain for agonistic effects, loss for antagonistic effects, and both for bidirectional endpoints. 
 - **endpoint_score** the fraction of active hitcalls for a feature divided by the total number of endpoints per mechanistic target 
-- **endpoint_count** the total number of endpoints assocaited with a mechanistic target 
+- **endpoint_count** the total number of endpoints associated with a mechanistic target 
 
 
 ### More information
@@ -174,10 +176,4 @@ MLinvitroTox will work with SIRIUS output up to [v5.8.6](https://github.com/brig
 - Abedini, Jaleh, Bethany Cook, Shannon Bell, Xiaoqing Chang, Neepa Choksi, Amber B. Daniel, David Hines et al. "Application of new approach methodologies: ICE tools to support chemical evaluations." Computational Toxicology 20 (2021): 100184.
 
 - Richard, Ann M., Richard S. Judson, Keith A. Houck, Christopher M. Grulke, Patra Volarath, Inthirany Thillainadarajah, Chihae Yang et al. "ToxCast chemical landscape: paving the road to 21st century toxicology." Chemical research in toxicology 29, no. 8 (2016): 1225-1251.
-
-
-
-
-
-
 

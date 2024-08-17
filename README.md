@@ -16,7 +16,7 @@ MLinvitroTox is an open-source Python package developed to provide a fully autom
 
 In its current form, MLinvitroTox can only be used from a terminal as a **command line interface (CLI)**.
 
-Should you be unfamiliar with Python, conda/mamba and/or git, you can work on a **renku session** (see below). 
+Should you be unfamiliar with Python, mamba (conda) and/or git, you can work on a **renku session** (see below). 
 
 
 ### Prerequisites for **CLI**
@@ -24,7 +24,7 @@ Should you be unfamiliar with Python, conda/mamba and/or git, you can work on a 
 To work with MLinvitroTox in CLI, you need:
 
 - Python 3: [installation guide](https://realpython.com/installing-python/)
-- mamba or conda. We recommend to use mamba, which was developed to replace conda. The conda guide is still helpful for mamba, simply replace `conda` with `mamba` for any command except `conda activate`.
+- mamba or conda. We recommend to use mamba, a CLI tool to manage conda environments. The conda guide is still helpful for mamba, simply replace `conda` with `mamba` for any command.
     - mamba: [installation](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html), [guide](https://mamba.readthedocs.io/en/latest/index.html)
     - conda: [installation](https://conda.io/projects/conda/en/latest/user-guide/install/index.html), [guide](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533)
 - git: [installation](https://git-scm.com/downloads), [guide](https://www.baeldung.com/ops/git-guide)
@@ -47,6 +47,7 @@ If you are using the provided renku project with your own data, you must first u
 
 If you want to take advantage of additional functionality offered by renku projects, we recommend [creating a free account](https://renkulab.io). This will enable you to clone the publicly available MLinvitroTox project, upload your own data, and save predictions for further use.
 
+
 ### Setup the tutorial repopsitory (needed for CLI)
 
 If you like to work locally, open a terminal and move to the folder in which you would like to work.
@@ -61,7 +62,7 @@ git clone git@gitlab.renkulab.io:expectmine/mlinvitrotox-tutorial.git
 cd mlinvitrotox-tutorial
 ```
 
-Create a conda environment. We recommend to use mamba, an optimized version of conda.
+Create a conda environment. We recommend to use mamba.
 
 ```
 mamba env create -f ./environment.yml
@@ -74,7 +75,7 @@ After the repository and the environment are setup, or when you are in a renku s
 
 Activate the environment. This needs to be done each time. 
 ```
-conda activate mlinvitrotox-tutorial
+mamba activate mlinvitrotox-tutorial
 ```
 
 To show the basic functionality, there is a small sample dataset in the `data` folder, called `sampledata`.

@@ -23,8 +23,9 @@ Should you be unfamiliar with Python, conda/mamba and/or git, you can work on a 
 To work with MLinvitroTox in CLI, you need:
 
 - Python 3: [installation guide](https://realpython.com/installing-python/)
-- conda: [installation](https://conda.io/projects/conda/en/latest/user-guide/install/index.html), [guide](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533)
-- mamba: [installation](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html), [guide](https://mamba.readthedocs.io/en/latest/index.html)
+- mamba or conda. We recommend to use mamba, which was developed to replace conda. The conda guide is still helpful for mamba, simply replace `conda` with `mamba` for any command except `conda activate`.
+    - mamba: [installation](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html), [guide](https://mamba.readthedocs.io/en/latest/index.html)
+    - conda: [installation](https://conda.io/projects/conda/en/latest/user-guide/install/index.html), [guide](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533)
 - git: [installation](https://git-scm.com/downloads), [guide](https://www.baeldung.com/ops/git-guide)
 - a terminal: [guide](https://medium.com/@grace.m.nolan/terminal-for-beginners-e492ba10902a)
 

@@ -27,10 +27,10 @@ To work with MLinvitroTox as a CLI, you need:
 - mamba or conda. We recommend to use mamba, a CLI tool to manage conda environments. The conda guide is still helpful for mamba, simply replace `conda` with `mamba` for any command.
     - mamba: [installation](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html), [guide](https://mamba.readthedocs.io/en/latest/index.html)
     - conda: [installation](https://conda.io/projects/conda/en/latest/user-guide/install/index.html), [guide](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533)
-- git: [installation](https://git-scm.com/downloads), [guide](https://www.baeldung.com/ops/git-guide)
+- git with an ssh connection: [installation](https://git-scm.com/downloads), [setup ssh connection](https://docs.gitlab.com/ee/user/ssh.html), [guide](https://www.baeldung.com/ops/git-guide)
 - a terminal: [guide](https://medium.com/@grace.m.nolan/terminal-for-beginners-e492ba10902a)
 
-Working with terminals on Windows can be cumbersome. We recommend to use WSL, the Windows Subsystem for Linux [installation](https://youtu.be/WrJVlIrutow?si=rzgd549F635XOncO&t=523). This provides access to a full Ubuntu terminal environment. Using WSL is only recommended for experts, as it will not be supported during the workshop. For Windows users, we recommend using renku (see below).
+Working with terminals on Windows can be cumbersome. We recommend to use WSL, the Windows Subsystem for Linux [installation](https://learn.microsoft.com/en-us/windows/wsl/install), [installation video](https://youtu.be/WrJVlIrutow?si=rzgd549F635XOncO&t=523). This provides access to a full Ubuntu terminal environment.
 
 
 ### Work from a **renku session**
@@ -151,13 +151,13 @@ To view the results, have a look at the output csv file `mlinvitrotox_model_pred
 Column names explanations:
 
 - **aeid** assay endpoint identifier from ToxCast/Tox21 [invitroDBv4.1 database](https://www.epa.gov/comptox-tools/exploring-toxcast-data)
-- **chem_id** a feature identifier created as follows sirius-id_mgf-file-name_mzmine-id_formula_adduct.
-- **prediction** a binary activity (1) or nonactivity (0) prediction generated from column **probability** on 0.5 default threshold
-- **probability** the continuous activity probability from 0 to 1. 
-- **similarity** cosine-based similarity of the feature to the training data for the particualr endpoint (based on molecular fingerprints). 
+- **chem_id** a feature identifier created as follows sirius-id_mgf-file-name_mzmine-id_formula_adduct
+- **prediction** a binary activity (1) or nonactivity (0) prediction generated from column **probability** using a threshold of 0.5
+- **probability** the continuous activity probability 
+- **similarity** cosine-based similarity of the feature to the training data (based on molecular fingerprints). 
 - **MechanisticTarget** the biologically meaningful effect of an endpoint mapped according to [NICEATM](https://ncim.nci.nih.gov/ncimbrowser/)
-- **signal_direction** gain for agonistic effects, loss for antagonistic effects, and both for bidirectional endpoints. 
-- **endpoint_score** the fraction of active hitcalls for a feature divided by the total number of endpoints per mechanistic target 
+- **signal_direction** `gain` for agonistic effects, `loss` for antagonistic effects, and `both` for bidirectional endpoints. 
+- **endpoint_score** the fraction of active hitcalls divided by the total number of endpoints per mechanistic target (for a feature)
 - **endpoint_count** the total number of endpoints associated with a mechanistic target 
 
 

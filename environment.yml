@@ -26,5 +26,5 @@ dependencies:
       - streamlit==1.35.0
       - cdk-pywrapper>=0.1.0 
       - openbabel-wheel>=3.1.1.19   # rye package can only install this and not openbabel directly
-      - mlinvitrotox>=0.2.1
+      - mlinvitrotox>=0.2.5
 prefix: "/opt/conda"

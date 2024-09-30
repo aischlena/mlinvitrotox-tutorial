@@ -129,6 +129,18 @@ Then, the SIRIUS data needs to be loaded, i.e., the predicted fingerprints and o
 itox load -i data/sampledata -o results/sampledata/sirius-pred-fps.csv
 ```
 
+Alternatively, true SIRIUS fingerprints can be loaded from SMILES. 
+
+```
+itox loadsmiles -i data/predictfromstructure/file-with-smiles.csv -o results/predictfromstructure/true-fps.csv
+```
+
+The file needs to contain an ID and a SMILES column. The column names can be specified if they differ from the defaults "ID" and "SMILES".
+
+```
+itox loadsmiles -i data/predictfromstructure/file-with-smiles.csv -d "ID" -s "SMILES" -o results/predictfromstructure/true-fps.csv
+```
+
 
 ### Run the models
 
@@ -141,6 +153,11 @@ itox run -m mlinvitrotox_model -i results/sampledata/sirius-pred-fps.csv -o resu
 or
 ```
 itox run -m mlinvitrotox_model.itox -i results/sampledata/sirius-pred-fps.csv -o results/sampledata
+```
+
+The models can also be run on true fingerprints.
+```
+itox run -m mlinvitrotox_model.itox -i results/predictfromstructure/true-fps.csv -d "ID" -o results/predictfromstructure
 ```
 
 

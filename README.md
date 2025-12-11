@@ -37,7 +37,7 @@ Working with terminals on Windows can be cumbersome. We recommend to use WSL, th
 
 A renku session allows you to test and work with MLinvitroTox without having to install Python, mamba and git. 
 
-To start a session, go to the [repository page](https://renkulab.io/projects/expectmine/mlinvitrotox-tutorial/) and press the green Start button on the top right. Starting the session might take a minute. 
+To start a session, go to the [repository page](https://renkulab.io/p/lena.aisch/mlinvitrotox-tutorial) and press the green Start button on the top right. Starting the session might take a minute. 
 
 It will open a JupyterLab session in your browser. There, you click on the `terminal` button to open a terminal. 
 

@@ -4,7 +4,7 @@ MLinvitroTox performs high-throughput hazard-based prioritization of high-resolu
 
 ## A. Project description
 
-MLinvitroTox is an open-source Python package developed to provide a fully automated high-throughput pipeline for hazard-driven prioritization of toxicologically relevant signals among tens of thousands of signals commonly detected in complex environmental samples through nontarget high-resolution mass spectrometry (NTS HRMS/MS). It is a machine learning (ML) framework comprising 490 independent XGBoost classifiers trained on molecular fingerprints from chemical structures and target specific endpoints from the ToxCast/Tox21 [invitroDBv4.1 database](https://www.epa.gov/comptox-tools/exploring-toxcast-data). In contrast to the classical approaches for ML-based toxicity prediction, MLinvitroTox predicts a bioactivity fingerprint for each unidentified HRMS feature (a distinct m/z ion) based on the molecular fingerprints derived from MS2 fragmentation spectra, rather than its chemical structure. The 490-bit binary bioactivity fingerprints are used as the basis for prioritizing the HRMS features towards further elucidation and analytical confirmation. This approach adds toxicological relevance to environmental analysis by focusing the time-consuming molecular identification efforts on features most likely to cause adverse effects instead of the most intense ones. MlinvitroTox enhances the interpretability by providing applicability domain, prediction probabilities, model accuracy, and cumulative contribution of endpoints for mechanistic targets, as well as feature importance analysis. In addition to its core functionality of predicting bioactivity from molecular fingerprints derived from MS2 data, the full release of MLinvitroTox will also support:
+MLinvitroTox is an open-source Python package developed to provide a fully automated high-throughput pipeline for hazard-driven prioritization of toxicologically relevant signals among tens of thousands of signals commonly detected in complex environmental samples through nontarget high-resolution mass spectrometry (NTS HRMS/MS). It is a machine learning (ML) framework comprising 490 independent XGBoost classifiers trained on molecular fingerprints from chemical structures and target specific endpoints from the ToxCast/Tox21 [invitroDBv4.1 database](https://www.epa.gov/comptox-tools/exploring-toxcast-data). In contrast to the classical approaches for ML-based toxicity prediction, MLinvitroTox predicts a bioactivity fingerprint for each unidentified HRMS feature (a distinct m/z ion) based on the molecular fingerprints derived from MS2 fragmentation spectra, rather than its chemical structure. The 490-bit binary bioactivity fingerprints are used as the basis for prioritizing the HRMS features towards further elucidation and analytical confirmation. This approach adds toxicological relevance to environmental analysis by focusing the time-consuming molecular identification efforts on features most likely to cause adverse effects instead of the most intense ones. MLinvitroTox enhances the interpretability by providing applicability domain, prediction probabilities, model accuracy, and cumulative contribution of endpoints for mechanistic targets, as well as feature importance analysis. In addition to its core functionality of predicting bioactivity from molecular fingerprints derived from MS2 data, the full release of MLinvitroTox will also support:
 
 - standardization of custom molecular structures
 - generation of molecular fingerprints for custom molecular structures
@@ -37,7 +37,7 @@ Working with terminals on Windows can be cumbersome. We recommend to use WSL, th
 
 A renku session allows you to test and work with MLinvitroTox without having to install Python, mamba and git. 
 
-To start a session, go to the [repository page](https://renkulab.io/p/lena.aisch/mlinvitrotox-tutorial) and press the green Start button on the top right. Starting the session might take a minute. 
+To start a session, go to the [repository page](https://renkulab.io/p/lena.aisch/mlinvitrotox-tutorial) and press the green Launch button on the top right. Starting the session might take a minute. 
 
 It will open a JupyterLab session in your browser. There, you click on the `terminal` button to open a terminal. 
 
@@ -68,15 +68,14 @@ Create a conda environment. We recommend to use mamba.
 mamba env create -f ./environment.yml
 ```
 
-
-## C. Usage (CLI and renku)
-
-After the repository and the environment are setup, or when you are in a renku session, you can get started with analyzing HRMS data.
-
 Activate the environment. This needs to be done each time. 
 ```
 mamba activate mlinvitrotox-tutorial
 ```
+
+## C. Usage (CLI and renku)
+
+After the repository and the environment are setup, or when you are in a renku session, you can get started with analyzing HRMS data.
 
 To show the basic functionality, there is a small sample dataset in the `data` folder, called `sampledata`.
 
@@ -105,7 +104,7 @@ You then run the following command to extract it. It is being extracted in the s
 itox extract -i data/sampledata
 ```
 
-If you don't want to move or copy your SIRIUS output, it can also be extracted in a folder outside of the repository. In the [load step](load-the-sirius-data), you will then need to specify the same path.
+If you don't want to move or copy your SIRIUS output, it can also be extracted in a folder outside of the repository. In the load step, you will then need to specify the same path.
 
 ```
 itox extract -i /path/to/your/sirius/folder
@@ -182,12 +181,12 @@ Column names explanations:
 
 All the commands can also be run with `mlinvitrotox` instead of `itox`. 
 
-MLinvitroTox will work with SIRIUS output up to [v5.8.6](https://github.com/bright-giant/sirius/releases/tag/v5.8.6), but not the latest release v6.0.4 (work in progress). 
+MLinvitroTox will work with SIRIUS output up to [v5.8.6](https://github.com/bright-giant/sirius/releases/tag/v5.8.6), but not later releases (work in progress). 
 
 
 
 ## References
-- Arturi et al. (2024) "MLinvitroTox reloaded for high-throughput hazard-based prioritization of HRMS data." (In preparation).
+- Arturi, K., Harris, E.J., Gasser, L. et al. MLinvitroTox reloaded for high-throughput hazard-based prioritization of high-resolution mass spectrometry data. J Cheminform 17, 14 (2025). https://doi.org/10.1186/s13321-025-00950-4.
 
 - Arturi, Katarzyna, and Juliane Hollender. "Machine learning-based hazard-driven prioritization of features in nontarget screening of environmental high-resolution mass spectrometry data." Environmental Science & Technology 57, no. 46 (2023): 18067-18079.
 
